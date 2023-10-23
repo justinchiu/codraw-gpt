@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "codraw_gpt"
+name = "codraw-gpt"
 version = "0.0.0"
-description = "Symbolic planning for dialogue-distributed optimization."
+description = "Dialogue interface for chalk-diagrams."
 authors = ["Justin Chiu <chiu.justin.t@gmail.com>"]
 readme = "README.md"
 
@@ -21,6 +21,7 @@ tyro = "*"
 thefuzz = "*"
 openai = "*"
 seaborn = "*"
+chalk-diagrams = { git = "https://github.com/chalk-diagrams/chalk.git" }
 
 [build-system]
 requires = ["poetry-core"]
