@@ -1,0 +1,107 @@
+Chalk is a declarative drawing library.
+Below we provide a brief introduction of the main functionality of the library.
+
+We start by importing the [`colour`](https://github.com/vaab/colour) module and the `diagrams` functions:
+
+```python
+from colour import Color
+from chalk import *
+```
+
+We also define some colors that will be shortly used:
+
+```python
+papaya = Color("#ff9700")
+blue = Color("#005FDB")
+```
+
+We can easily create basic shapes (the functions `circle`, `square`, `triangle`, `hrule`, `vrule`) and style them with various attributes (the methods`fill_color`, `line_color`, `line_width`).
+For example:
+
+```python
+d = circle(radius=1).fill_color(papaya)
+oval = circle(radius=1).scale_x(0.5).fill_color(papaya)
+d = rectangle(width=2, height=3).fill_color(papaya)
+d = triangle(width=2, height=3).fill_color(papaya)
+# Vertical line of height 2
+d = vrule(length=2).line_color(papaya)
+# Horizontal line of width 2
+d = hrule(length=2).line_color(papaya)
+
+```
+
+The diagram can be saved to an image using the `render` method:
+
+```python
+d.render_svg("truck.svg", height=64)
+```
+
+The origin is the center of a diagram. 
+
+We merge two diagrams on top of each other with:
+
+```python
+new_diagram = concat([left_diagram, right_diagram])
+```
+
+We can glue together two diagrams horizontally left-to-right using the combinators `hcat`
+For example:
+
+```python
+horizontal_seperation = 0.0
+new_diagram = hcat([left_diagram, right_diagram], sep=hozontal_seperation).center_xy()
+```
+
+We can glue together two diagrams vertically top-to-bottom using the combinator `vcat`
+For example:
+
+```python
+vertical_seperation = 0.5
+new_diagram = vcat([top_diagram, bottom_diagram], sep=vertical_separation).center_xy()
+```
+
+We can glue together two diagrams on the bottom-left by: 
+
+```python
+new_diagram = concat([left_diagram, right_diagram.align_bl()]).center_xy()
+```
+
+# Code for the diagram of a face with eyes, nose and mouth
+
+```python
+# First we need sizes
+EYE_SIZE = 1
+
+# Then we need to draw an eye.
+outer_eye = circle(radius=EYE_SIZE).fill_color(blue) 
+pupil = circle(radius=0.4 * EYE_SIZE).fill_color(papaya) 
+eye = concat([outer_eye, pupil])
+
+# Then put them next to each other horizontally.
+between_eyes = 0.5 * EYE_SIZE
+eyes = hcat([eye, eye], sep=between_eyes).center_xy()
+
+# Next a nose
+nose = triangle(width=2 * EYE_SIZE).scale_x(0.5).fill_color(blue)
+
+# And a mouth
+mouth = arc(2 * EYE_SIZE, 0, 180).scale_y(0.5).line_color(blue)
+
+# Finally we put it all together.
+vcat([eyes, nose, mouth], sep=0.1)
+```
+
+These are the only methods allower. There are no methods  `at`, `move_to`, `translate`, `translate_y`, or `translate_x`. Do not use them!
+
+```python
+circle(radius=EYE_SIZE).translate(1, 2)
+>>> ERROR Failure!
+```
+
+```python
+circle(radius=EYE_SIZE).translate_x(1)
+>>> ERROR Failure!
+```
+
+Description and Code:
+

@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "codraw-gpt"
+name = "codraw"
 version = "0.0.0"
 description = "Dialogue interface for chalk-diagrams."
 authors = ["Justin Chiu <chiu.justin.t@gmail.com>"]
@@ -16,14 +16,22 @@ numpyro = "*"
 pyparsing = "*"
 python-dateutil = "*"
 rich = "*"
-tiktoken = "*"
 tyro = "*"
 thefuzz = "*"
+
+# openai
+tiktoken = "*"
 openai = "*"
+tenacity = "*"
+
+# plotting
 seaborn = "*"
+
+# chalk ?
 chalk-diagrams = { git = "https://github.com/chalk-diagrams/chalk.git" }
+CairoSVG= "*"
+pycairo = "*"
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
-
