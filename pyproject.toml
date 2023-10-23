@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "codraw_gpt"
+version = "0.0.0"
+description = "Symbolic planning for dialogue-distributed optimization."
+authors = ["Justin Chiu <chiu.justin.t@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+numpy = "*"
+scipy = "*"
+jaxlib = "^0.4.14"
+jax = "*"
+tfp-nightly = "*"
+numpyro = "*"
+pyparsing = "*"
+python-dateutil = "*"
+rich = "*"
+tiktoken = "*"
+tyro = "*"
+thefuzz = "*"
+openai = "*"
+seaborn = "*"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+

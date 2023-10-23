@@ -1,0 +1,14 @@
+new-window -n "root"
+send-keys "conda deactivate" Enter
+send-keys "poetry shell" Enter
+split-window -h -p 50
+send-keys "conda deactivate" Enter
+send-keys "poetry shell" Enter
+
+new-window -n "codraw"
+send-keys "conda deactivate" Enter
+send-keys "cd codraw" Enter
+split-window -h -p 50
+send-keys "conda deactivate" Enter
+send-keys "cd codraw" Enter
+
