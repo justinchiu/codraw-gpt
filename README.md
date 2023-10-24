@@ -20,4 +20,4 @@ python codraw/bicycle.py
 python outputs/bicycle.py
 open bicycle.svg
 ```
-![alt text](httphttps://github.com/justinchiu/codraw-gpt/blob/main/bicycle.svg?raw=true)
+![alt text](https://github.com/justinchiu/codraw-gpt/blob/main/bicycle.svg?raw=true)
