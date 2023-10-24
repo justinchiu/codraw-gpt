@@ -20,4 +20,4 @@ python codraw/bicycle.py
 python outputs/bicycle.py
 open bicycle.png
 ```
-![alt text](https://github.com/justinchiu/codraw-gpt/blob/main/fugres/bicycle.png?raw=true)
+![alt text](https://github.com/justinchiu/codraw-gpt/blob/main/bicycle.png?raw=true)
