@@ -18,6 +18,6 @@ Execute the following from the root of this repository.
 python codraw/bicycle.py
 # generate `bicycle.svg`
 python outputs/bicycle.py
-open bicycle.svg
+open bicycle.png
 ```
-![alt text](https://github.com/justinchiu/codraw-gpt/blob/main/bicycle.svg?raw=true)
+![alt text](https://github.com/justinchiu/codraw-gpt/blob/main/fugres/bicycle.png?raw=true)

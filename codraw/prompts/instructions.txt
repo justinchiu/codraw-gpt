@@ -33,7 +33,7 @@ d = hrule(length=2).line_color(papaya)
 The diagram can be saved to an image using the `render` method:
 
 ```python
-d.render_svg("truck.svg", height=64)
+d.render("truck.png", 1200)
 ```
 
 The origin is the center of a diagram. 
@@ -91,7 +91,7 @@ mouth = arc(2 * EYE_SIZE, 0, 180).scale_y(0.5).line_color(blue)
 vcat([eyes, nose, mouth], sep=0.1)
 ```
 
-These are the only methods allower. There are no methods  `at`, `move_to`, `translate`, `translate_y`, or `translate_x`. Do not use them!
+These are the only methods allower. There are no methods `at`, `move_to`, `translate`, `translate_y`, or `translate_x`. Do not use them!
 
 ```python
 circle(radius=EYE_SIZE).translate(1, 2)

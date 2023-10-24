@@ -6,6 +6,9 @@ outfile = Path("outputs/bicycle.py")
 
 HEADER = """from colour import Color
 from chalk import *
+
+papaya = Color("#ff9700")
+blue = Color("#005FDB")
 """
 
 MODEL = "gpt-4"

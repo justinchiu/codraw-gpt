@@ -3,41 +3,34 @@ from chalk import *
 from colour import Color
 from chalk import *
 
-# define colors
 black = Color("#000000")
 blue = Color("#005FDB")
 
-# define sizes
+# Bicycle sizes
 WHEEL_RADIUS = 1
-WHEEL_SPACE = 1
-FRAME_SIZE = 1
-HANDLE_WIDTH = 0.5
-SEAT_HEIGHT = 1.5
+FRAME_SIZE = 1.5 
+SEAT_SIZE = 0.2
+HANDLE_SIZE = 0.3
 
-# create wheels
-outer_wheel = circle(radius=WHEEL_RADIUS).fill_color(black)
-inner_wheel = circle(radius=0.3 * WHEEL_RADIUS).fill_color(blue)
-wheel = concat([outer_wheel, inner_wheel])
+# Drawing the wheels of the bicycle
+wheel = circle(radius=WHEEL_RADIUS).line_width(0.1) 
 
-# create two wheels
-wheels = hcat([wheel, wheel], sep=WHEEL_SPACE).center_xy()
+# Drawing the frame of the bicycle
+frame1 = rectangle(width=2 * FRAME_SIZE, height=1).fill_color(blue).rotate(45)
+frame2 = rectangle(width=2 * FRAME_SIZE, height=1).fill_color(blue).rotate(-45)
+bikeFrame = vcat([hcat([frame1, frame2], sep= FRAME_SIZE), hcat([frame2, frame1], sep=FRAME_SIZE)])
 
-# create frame
-upper_frame = hrule(length=FRAME_SIZE).line_color(blue)
-lower_frame = hrule(length=FRAME_SIZE).line_color(blue)
-frame = vcat([upper_frame, lower_frame], sep=0.1).center_xy()
+# Drawing the seat of the bicycle
+seat = square(side=SEAT_SIZE).fill_color(black)
 
-# create handle
-handle_stem = vrule(length=WHEEL_RADIUS).line_color(blue)
-handle = hrule(length=HANDLE_WIDTH).line_color(blue).align_t()
-handle = concat([handle, handle_stem])
+# Drawing the handle of the bicycle
+handle = square(side=HANDLE_SIZE).fill_color(blue)
 
-# create seat
-seat_stem = vrule(length=SEAT_HEIGHT).line_color(blue)
-seat = hrule(length=HANDLE_WIDTH).line_color(blue).align_t()
-seat = concat([seat, seat_stem])
+# Putting the bicycle parts together
+bicycle = vcat([
+    hcat([wheel, bikeFrame, wheel], sep=WHEEL_RADIUS).center_xy(),
+    vcat([seat, handle], sep=FRAME_SIZE).center_xy()
+], sep=WHEEL_RADIUS)
 
-# put everything together
-bicycle = concat([wheels, frame.align_bl(), handle.align_br(), seat.align_bl()]).center_xy()
+bicycle.render("bicycle.png", 1200)
 
-bicycle.render_svg("bicycle.svg", height=128)
