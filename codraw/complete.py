@@ -17,14 +17,14 @@ def construct_messages(system, user):
     return [
         {"role": "system", "content": system},
         {"role": "user", "content": user},
-    ],
+    ]
 
 #@tenacity.retry#(wait=tenacity.wait_fixed(0.5))
 def complete(model, messages, temperature=1.0, n=1):
     return openai.ChatCompletion.create(
         model=model,
         messages=messages,
-        stop="\n",
+        #stop="\n",
         temperature=temperature,
         n=n,
     )
@@ -32,8 +32,9 @@ def complete(model, messages, temperature=1.0, n=1):
 def complete_code(model, prompt):
     system_string = load_system()
     instructions_string = load_instructions()
-    messages = construct_messages(system_string, instructions_string + prompt)
-    return complete(model, messages)
+    prompt_string = instructions_string + prompt
+    messages = construct_messages(system_string, prompt_string)
+    return complete(model, messages), prompt_string
 
 if __name__ == "__main__":
     instructions_prefix = load_instructions()
