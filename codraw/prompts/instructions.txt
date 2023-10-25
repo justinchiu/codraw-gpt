@@ -91,7 +91,7 @@ mouth = arc(2 * EYE_SIZE, 0, 180).scale_y(0.5).line_color(blue)
 vcat([eyes, nose, mouth], sep=0.1)
 ```
 
-These are the only methods allower. There are no methods `at`, `move_to`, `translate`, `translate_y`, or `translate_x`. Do not use them!
+These are the only methods allowed. There are no methods `at`, `move_to`, `translate`, `translate_y`, or `translate_x`. Do not use them!
 
 ```python
 circle(radius=EYE_SIZE).translate(1, 2)
