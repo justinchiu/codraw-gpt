@@ -22,7 +22,7 @@ For example:
 d = circle(radius=1).fill_color(papaya)
 oval = circle(radius=1).scale_x(0.5).fill_color(papaya)
 d = rectangle(width=2, height=3).fill_color(papaya)
-d = triangle(width=2, height=3).fill_color(papaya)
+d = triangle(width=2).fill_color(papaya)
 # Vertical line of height 2
 d = vrule(length=2).line_color(papaya)
 # Horizontal line of width 2

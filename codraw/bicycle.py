@@ -23,5 +23,3 @@ with outfile.open("w") as f:
     f.write(HEADER)
     f.write(code)
 
-
-
